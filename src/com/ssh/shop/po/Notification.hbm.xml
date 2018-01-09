@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-6 21:02:51 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ssh.shop.po.Notification" table="NOTIFICATION">
+        <id name="noticeID" type="int">
+            <column name="NOTICEID" />
+            <generator class="native" />
+        </id>
+        <property name="notice" type="java.lang.String">
+            <column name="NOTICE" />
+        </property>
+        <property name="noticeDate" type="java.util.Date">
+            <column name="NOTICEDATE" />
+        </property>
+    </class>
+</hibernate-mapping>

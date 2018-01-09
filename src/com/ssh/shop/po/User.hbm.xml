@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-6 21:02:51 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ssh.shop.po.User" table="USER">
+        <id name="userID" type="int">
+            <column name="USERID" />
+            <generator class="native" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="userPassword" type="java.lang.String">
+            <column name="USERPASSWORD" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="PHONE" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="balance" type="float">
+            <column name="BALANCE" />
+        </property>
+        <property name="payPassword" type="java.lang.String">
+            <column name="PAYPASSWORD" />
+        </property>
+        
+        <set name="books" table="USER_BOOK" lazy="true"> 
+            <key column="USERID"/> 
+            <many-to-many  column="BOOKID"   class="com.ssh.shop.po.Book"/> 
+        </set>
+        
+        <one-to-one name="shoppingcart" class="com.ssh.shop.po.Shoppingcart" cascade="all"/>
+        
+        <set name="orders" inverse="true" cascade="all" lazy="true"> 
+              <key column="USERID" not-null="true"/> 
+              <one-to-many class="com.ssh.shop.po.Order"/> 
+        </set> 
+        
+        <set name="commentRecord" inverse="true" cascade="all" lazy="true"> 
+              <key column="USERID" not-null="true"/> 
+              <one-to-many class="com.ssh.shop.po.CommentRecord"/> 
+        </set>
+        
+        <set name="likeRecord" inverse="true" cascade="all" lazy="true"> 
+              <key column="USERID" not-null="true"/> 
+              <one-to-many class="com.ssh.shop.po.LikeRecord"/> 
+        </set> 
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-6 21:02:51 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ssh.shop.po.Order" table="USERORDER">
+        <id name="orderID" type="int">
+            <column name="ORDERID" />
+            <generator class="native" />
+        </id>
+
+        <property name="dealDate" type="java.util.Date">
+            <column name="DEALDATE" />
+        </property>
+        
+        <property name="orderTotalPrice" type="float">
+            <column name="ORDERTOTALPRICE" />
+        </property>
+        
+        <many-to-one name="user"  class="com.ssh.shop.po.User" fetch="select"  cascade="save-update"> 
+            <column name="USERID" not-null="true"/> 
+        </many-to-one>
+        
+         <set name="orderDetail" inverse="true" cascade="all" lazy="true"> 
+              <key column="ORDERID" not-null="true"/> 
+              <one-to-many class="com.ssh.shop.po.OrderDetail"/> 
+        </set> 
+                
+    </class>
+</hibernate-mapping>
