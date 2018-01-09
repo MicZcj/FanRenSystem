@@ -42,7 +42,7 @@
             <column name="PUBLISHDATE" />
         </property>
         
-        <many-to-one name="bookVariety"  class="com.ssh.shop.po.BookVariety" fetch="select"  cascade="save-update"> 
+        <many-to-one name="bookVariety"  class="com.ssh.shop.po.BookVariety" lazy="false"> 
             <column name="VARIETYID" not-null="true"/> 
         </many-to-one>
         

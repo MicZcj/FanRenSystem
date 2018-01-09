@@ -7,6 +7,10 @@
 		<action name="boss_*" method="{1}" class="com.ssh.shop.action.BossAction">
 			<result name="index">/index.jsp</result>
 			<result name="login">/login.jsp</result>
+
+		</action>
+		<action name="book_*" method="{1}" class="com.ssh.shop.action.BookAction">
+			<result name="findAllBook">/showbooks.jsp</result>
 		</action>
 	</package>
 </struts>

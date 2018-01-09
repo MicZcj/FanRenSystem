@@ -53,17 +53,35 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	<bean id="bossDao" class="com.ssh.shop.dao.BossDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
+	<bean id="bookDao" class="com.ssh.shop.dao.BookDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- <bean id="notificationDao" class="com.ssh.shop.dao.NotificationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean> -->
 	<!-- 配置业务层类 -->
 	<bean id="bossService" class="com.ssh.shop.service.BossServiceImpl">
 		<property name="bossDao" ref="bossDao"></property>
 	</bean>
-	
+	<bean id="bookService" class="com.ssh.shop.service.BookServiceImpl">
+		<property name="bookDao" ref="bookDao"></property>
+	</bean>
+	<!-- <bean id="notificationService" class="com.ssh.shop.service.NotificationServiceImpl">
+		<property name="notificationDao" ref="notificationDao"></property>
+	</bean> -->
 	<!-- 配置Action类 -->
 	<bean id="bossAction" class="com.ssh.shop.action.BossAction"
 		scope="prototype">
 		<property name="bossService" ref="bossService"></property>
 	</bean>
+	<bean id="bookAction" class="com.ssh.shop.action.BookAction"
+		scope="prototype">
+		<property name="bookService" ref="bookService"></property>
+	</bean>
+	<!-- <bean id="notificationAction" class="com.ssh.shop.action.NotificationAction"
+		scope="prototype">
+		<property name="notificationService" ref="notificationService"></property>
+	</bean> -->
 
 	<!-- 配置事务管理器 -->
 	<bean id="transactionManager"
