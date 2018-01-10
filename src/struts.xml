@@ -11,11 +11,8 @@
 		</action>
 		<action name="book_*" method="{1}" class="com.ssh.shop.action.BookAction">
 			<result name="findAllBook">/showbooks.jsp</result>
-			<result name="findAllType">/showtypes.jsp</result>
 			<result name="addBookUI">/addbook.jsp</result>
-			<result name="addTypeUI">/addbooktype.jsp</result>
 			<result name="addBook" type="redirectAction">book_findAllBook.action</result>
-			<result name="addType" type="redirectAction">book_findAllType.action</result>
 			<result name="downloadBook" type="stream">
 				<!-- <param name="contentType">text/plain;charset=ISO8859-1</param> -->
 				<!-- <param name="contentType">application/octet-stream</param> -->
@@ -26,6 +23,13 @@
 			<result name="save" type="redirectAction">book_findAllBook.action</result>
 			<result name="savefalse">/error.jsp</result>
 			<result name="edit">/bookedit.jsp</result>
+		</action>
+		<action name="booktype_*" method="{1}"
+			class="com.ssh.shop.action.BookTypeAction">
+			<result name="findAllType">/showtypes.jsp</result>
+			<result name="addTypeUI">/addbooktype.jsp</result>
+			<result name="addType" type="redirectAction">booktype_findAllType.action</result>
+			<result name="typedelete" type="redirectAction">booktype_findAllType.action</result>
 		</action>
 	</package>
 	<constant name="struts.multipart.maxSize" value="100000000" />

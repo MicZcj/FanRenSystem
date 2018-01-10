@@ -78,21 +78,6 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao {
 
 	}
 
-	@Override
-	public List<BookVariety> findTypeByPage(int begin, Integer pageSize) {
-		DetachedCriteria criteria = DetachedCriteria.forClass(BookVariety.class);
-		List<BookVariety> list = (List<BookVariety>) this.getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
-		return list;
-	}
-
-	@Override
-	public Integer findTypeCount() {
-		String hql = "select count(*) from BookVariety";
-		List<Long> list = (List<Long>) this.getHibernateTemplate().find(hql);
-		if (list.size() > 0) {
-			return list.get(0).intValue();
-		}
-		return 0;
-	}
+	
 
 }

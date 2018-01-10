@@ -10,10 +10,10 @@
 		</id>
 
 		<property name="varietyName" type="java.lang.String">
-			<column name="VARIETYNAME" />
+			<column name="VARIETYNAME" not-null="true" />
 		</property>
 
-		<set name="books" inverse="true" cascade="all">
+		<set name="books" inverse="true" cascade="delete">
 			<key column="VARIETYID" not-null="true" />
 			<one-to-many class="com.ssh.shop.po.Book" />
 		</set>

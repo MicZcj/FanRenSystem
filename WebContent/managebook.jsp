@@ -15,9 +15,9 @@
 	<br>
 	<a href="book_addBookUI.action">添加图书</a>
 	<br>
-	<a href="book_findAllType.action">查询所有图书类别</a>
+	<a href="booktype_findAllType.action">查询所有图书类别</a>
 	<br>
-	<a href="book_addTypeUI.action">添加图书类别</a>
+	<a href="booktype_addTypeUI.action">添加图书类别</a>
 	<br>
 </body>
 </html>

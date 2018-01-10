@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form action="book_addType.action" method="post" namespace="/"
+	<s:form action="booktype_addType.action" method="post" namespace="/"
 		theme="simple">
 		<table>
 			<tr>
