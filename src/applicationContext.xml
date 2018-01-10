@@ -62,6 +62,9 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	<bean id="notificationDao" class="com.ssh.shop.dao.NotificationDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="orderDao" class="com.ssh.shop.dao.OrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<!-- 配置业务层类 -->
 	<bean id="bossService" class="com.ssh.shop.service.BossServiceImpl">
 		<property name="bossDao" ref="bossDao"></property>
@@ -74,6 +77,9 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	</bean>
 	<bean id="notificationService" class="com.ssh.shop.service.NotificationServiceImpl">
 		<property name="notificationDao" ref="notificationDao"></property>
+	</bean>
+	<bean id="orderService" class="com.ssh.shop.service.OrderServiceImpl">
+		<property name="orderDao" ref="orderDao"></property>
 	</bean>
 	<!-- 配置Action类 -->
 	<bean id="bossAction" class="com.ssh.shop.action.BossAction"
@@ -91,6 +97,10 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	<bean id="notificationAction" class="com.ssh.shop.action.NotificationAction"
 		scope="prototype">
 		<property name="notificationService" ref="notificationService"></property>
+	</bean>
+	<bean id="orderAction" class="com.ssh.shop.action.OrderAction"
+		scope="prototype">
+		<property name="orderService" ref="orderService"></property>
 	</bean>
 
 	<!-- 配置事务管理器 -->

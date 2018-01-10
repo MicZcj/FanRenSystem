@@ -30,24 +30,24 @@
             <column name="PAYPASSWORD" />
         </property>
         
-        <set name="books" table="USER_BOOK" lazy="true"> 
+        <set name="books" table="USER_BOOK" lazy="false"> 
             <key column="USERID"/> 
             <many-to-many  column="BOOKID"   class="com.ssh.shop.po.Book"/> 
         </set>
         
         <one-to-one name="shoppingcart" class="com.ssh.shop.po.Shoppingcart" cascade="all"/>
         
-        <set name="orders" inverse="true" cascade="all" lazy="true"> 
+        <set name="orders" inverse="true" cascade="all" lazy="false"> 
               <key column="USERID" not-null="true"/> 
               <one-to-many class="com.ssh.shop.po.Order"/> 
         </set> 
         
-        <set name="commentRecord" inverse="true" cascade="all" lazy="true"> 
+        <set name="commentRecord" inverse="true" cascade="all" lazy="false"> 
               <key column="USERID" not-null="true"/> 
               <one-to-many class="com.ssh.shop.po.CommentRecord"/> 
         </set>
         
-        <set name="likeRecord" inverse="true" cascade="all" lazy="true"> 
+        <set name="likeRecord" inverse="true" cascade="all" lazy="false"> 
               <key column="USERID" not-null="true"/> 
               <one-to-many class="com.ssh.shop.po.LikeRecord"/> 
         </set> 

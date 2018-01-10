@@ -40,6 +40,10 @@
 			<result name="save" type="redirectAction">notify_load.action</result>
 			<result name="delete" type="redirectAction">notify_load.action</result>
 		</action>
+		<action name="order_*" method="{1}"
+			class="com.ssh.shop.action.OrderAction">
+			<result name="find">/showorders.jsp</result>
+		</action>
 	</package>
 	<constant name="struts.multipart.maxSize" value="100000000" />
 </struts>
