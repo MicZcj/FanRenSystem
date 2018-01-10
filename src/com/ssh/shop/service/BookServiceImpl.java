@@ -34,11 +34,11 @@ public class BookServiceImpl implements BookService {
 		return pageBean;
 	}
 
-//	@Override
-//	public void addBook(Book book) {
-//		bookDao.addBook(book);
-//	}
-//
+	@Override
+	public void addBook(Book book) {
+		bookDao.addBook(book);
+	}
+
 //	@Override
 //	public List<String> delete(Book book) {
 //		List<String> paths = bookDao.delete(book);

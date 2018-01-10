@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="book_addBookUI.action">添加图书</a>
+	<br>
 	<table cellspacing="0" border="1" class="table1">
 		<thead>
 			<tr>
@@ -37,14 +39,16 @@
 					<td align="center"><s:property value="#b.authorName" /></td>
 					<td align="center"><s:property value="#b.price" /></td>
 					<td align="center"><s:property value="#b.publisher" /></td>
-					<td align="center"><s:property value="#b.bookVariety.varietyName" /></td>
+					<td align="center"><s:property
+							value="#b.bookVariety.varietyName" /></td>
 					<td align="center"><s:property value="#b.likeNum" /></td>
 					<td align="center"><s:property value="#b.description" /></td>
 					<td align="center"><s:property value="#b.bookPath" /></td>
 					<td align="center"><s:property value="#b.cover" /></td>
 					<td align="center"><s:property value="#b.recommendFlag" /></td>
-					<td align="center"><s:date name="#b.publishDate" format="yyyy-MM-dd" /></td>
-					
+					<td align="center"><s:date name="#b.publishDate"
+							format="yyyy-MM-dd" /></td>
+
 					<td align="center"><a
 						href="${pageContext.request.contextPath }/book_edit.action?bid=<s:property value="#b.bid" />"><button
 								style="color: red">编辑</button></a></td>

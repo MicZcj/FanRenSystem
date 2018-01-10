@@ -9,9 +9,9 @@ import com.ssh.shop.po.PageBean;
 public interface BookService {
 
 	PageBean<Book> findByPage(Integer currPage);
-//
-//	void addBook(Book book);
-//
+
+	void addBook(Book book);
+
 //	List<String> delete(Book book);
 //
 //	void deleteDate(Book book);

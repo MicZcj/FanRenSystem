@@ -10,8 +10,8 @@ public interface BookDao {
 
 	List<Book> findByPage(int begin, Integer pageSize);
 
-//	void addBook(Book book);
-//
+	void addBook(Book book);
+
 //	List<String> delete(Book book);
 //
 //	void deleteDate(Book book);

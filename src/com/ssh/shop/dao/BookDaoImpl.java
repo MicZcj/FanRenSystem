@@ -30,11 +30,11 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao {
 		return list;
 	}
 
-//	@Override
-//	public void addBook(Book book) {
-//		this.getHibernateTemplate().save(book);
-//	}
-//
+	@Override
+	public void addBook(Book book) {
+		this.getHibernateTemplate().save(book);
+	}
+
 //	@Override
 //	public List<String> delete(Book book) {
 //		String hql = "from Book as book where book.bid='" + book.getBid() + "'";
