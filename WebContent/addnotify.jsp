@@ -8,14 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	欢迎您:
-	<s:property value="#session.existBoss.bossName" />
-	<br>
-	<a href="managebook.jsp">图书管理</a>
-	<br>
-	<a href="manageorder.jsp">账单管理</a>
-	<br>
-	<a href="notify_load.action">通知管理</a>
-	<br>
+	<s:form action="notify_save.action" method="post" namespace="/"
+		theme="simple">
+		通知内容:<br>
+		<textarea name="notice" rows="7"></textarea>
+		<br>
+		<s:submit value="提交" />
+	</s:form>
+
 </body>
 </html>

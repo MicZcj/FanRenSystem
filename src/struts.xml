@@ -28,8 +28,17 @@
 			class="com.ssh.shop.action.BookTypeAction">
 			<result name="findAllType">/showtypes.jsp</result>
 			<result name="addTypeUI">/addbooktype.jsp</result>
-			<result name="addType" type="redirectAction">booktype_findAllType.action</result>
-			<result name="typedelete" type="redirectAction">booktype_findAllType.action</result>
+			<result name="addType" type="redirectAction">booktype_findAllType.action
+			</result>
+			<result name="typedelete" type="redirectAction">booktype_findAllType.action
+			</result>
+		</action>
+		<action name="notify_*" method="{1}"
+			class="com.ssh.shop.action.NotificationAction">
+			<result name="load">/shownotifications.jsp</result>
+			<result name="addUI">/addnotify.jsp</result>
+			<result name="save" type="redirectAction">notify_load.action</result>
+			<result name="delete" type="redirectAction">notify_load.action</result>
 		</action>
 	</package>
 	<constant name="struts.multipart.maxSize" value="100000000" />

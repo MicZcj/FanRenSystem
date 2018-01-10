@@ -11,6 +11,9 @@
 	欢迎您:
 	<s:property value="#session.existBoss.bossName" />
 	<br>
+	<a href="index.jsp">返回</a>
+	<br>
+	<br>
 	<a href="book_findAllBook.action">查询所有图书</a>
 	<br>
 	<a href="book_addBookUI.action">添加图书</a>
