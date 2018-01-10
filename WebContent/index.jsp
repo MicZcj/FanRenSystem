@@ -12,6 +12,7 @@
 	<s:property value="#session.existBoss.bossName" />
 	<br>
 	<a href="book_findAllBook.action">查询所有图书</a><br>
+	<a href=""></a><br>
 	<a href="order_findAllOrder.action">查询所有账单</a><br>
 	<a href="notify_addUI.action">添加通知</a><br>
 </body>

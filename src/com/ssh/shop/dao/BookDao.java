@@ -15,12 +15,12 @@ public interface BookDao {
 
 	List<BookVariety> findAll();
 
-//	List<String> delete(Book book);
-//
-//	void deleteDate(Book book);
-//
+	List<String> delete(Book book);
+
 	Book findById(Integer bid);
 
 	boolean update(Book book);
+
+	void deleteData(int bookID);
 
 }

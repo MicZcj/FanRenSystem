@@ -45,19 +45,19 @@ public class BookServiceImpl implements BookService {
 		return bookDao.findAll();
 	}
 
-//	@Override
-//	public List<String> delete(Book book) {
-//		List<String> paths = bookDao.delete(book);
-//		return paths;
-//
-//	}
-//
-//	@Override
-//	public void deleteDate(Book book) {
-//		bookDao.deleteDate(book);
-//
-//	}
-//
+	@Override
+	public List<String> delete(Book book) {
+		List<String> paths = bookDao.delete(book);
+		return paths;
+
+	}
+
+	@Override
+	public void deleteData(int bookID) {
+		bookDao.deleteData(bookID);
+
+	}
+
 	@Override
 	public Book findById(Integer bid) {
 		Book book = bookDao.findById(bid);

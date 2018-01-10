@@ -41,21 +41,26 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao {
 		return (List<BookVariety>) this.getHibernateTemplate().find("from BookVariety");
 	}
 
-//	@Override
-//	public List<String> delete(Book book) {
-//		String hql = "from Book as book where book.bid='" + book.getBid() + "'";
-//		List<Book> list = (List<Book>) this.getHibernateTemplate().find(hql);
-//		List<String> paths = new ArrayList<String>();
-//		paths.add(list.get(0).getBpath());
-//		paths.add(list.get(0).getBcover());
-//		return paths;
-//	}
-//
-//	@Override
-//	public void deleteDate(Book book) {
-//		this.getHibernateTemplate().delete(book);
-//	}
-//
+	@Override
+	public List<String> delete(Book book) {
+		String hql = "from Book as book where book.bookID='" + book.getBookID() + "'";
+		List<Book> list = (List<Book>) this.getHibernateTemplate().find(hql);
+		List<String> paths = new ArrayList<String>();
+		paths.add("upload/" + list.get(0).getBookPath());
+		paths.add(list.get(0).getCover());
+		return paths;
+	}
+
+	@Override
+	public void deleteData(int bookID) {
+		String hql = "from Book as book where book.bookID='" + bookID + "'";
+		List<Book> list = (List<Book>) this.getHibernateTemplate().find(hql);
+		for (int i = 0; i < list.size(); i++) {
+			this.getHibernateTemplate().delete(list.get(i));
+		}
+
+	}
+
 	@Override
 	public Book findById(Integer bid) {
 		return this.getHibernateTemplate().get(Book.class, bid);

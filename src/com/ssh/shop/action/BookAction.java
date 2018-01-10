@@ -165,20 +165,19 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 		}
 	}
 
-	//
-	// // 数据库里的删除文件方法
-	// public String delete() {
-	// List<String> paths = bookService.delete(book);
-	// for (int i = 0; i < paths.size(); i++) {
-	// File file = new File(paths.get(i));
-	// if (file.delete()) {
-	// System.out.println("删除成功！");
-	// }
-	// }
-	// bookService.deleteDate(book);
-	// return "delete";
-	// }
-	//
+	// 数据库里的删除文件方法
+	public String delete() {
+		List<String> paths = bookService.delete(book);
+		for (int i = 0; i < paths.size(); i++) {
+			File file = new File(paths.get(i));
+			if (file.delete()) {
+				System.out.println("删除成功！");
+			}
+		}
+		bookService.deleteData(book.getBookID());
+		return "delete";
+	}
+
 	// 跳转到编辑页面
 	public String edit() {
 		book = bookService.findById(book.getBookID());
