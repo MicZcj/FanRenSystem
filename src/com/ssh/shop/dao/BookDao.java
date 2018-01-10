@@ -3,6 +3,7 @@ package com.ssh.shop.dao;
 import java.util.List;
 
 import com.ssh.shop.po.Book;
+import com.ssh.shop.po.BookVariety;
 
 public interface BookDao {
 
@@ -11,6 +12,8 @@ public interface BookDao {
 	List<Book> findByPage(int begin, Integer pageSize);
 
 	void addBook(Book book);
+
+	List<BookVariety> findAll();
 
 //	List<String> delete(Book book);
 //

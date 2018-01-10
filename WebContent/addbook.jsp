@@ -9,44 +9,50 @@
 </head>
 <body>
 	<s:form action="book_addBook.action" enctype="multipart/form-data"
-		method="post" namespace="/">
+		method="post" namespace="/" theme="simple">
 		<table>
 			<tr>
-				<td align="center">isbn<input type="text" name="isbn"></td>
+				<td>isbn<input type="text" name="isbn"></td>
 			</tr>
 			<tr>
-				<td align="center">书名<input type="text" name="bookName"></td>
+				<td>书名<input type="text" name="bookName"></td>
 			</tr>
 			<tr>
-				<td align="center">作者<input type="text" name="authorName"></td>
+				<td>作者<input type="text" name="authorName"></td>
 			</tr>
 			<tr>
-				<td align="center">价格<input type="text" name="price"></td>
+				<td>价格<input type="text" name="price"></td>
 			</tr>
 			<tr>
-				<td align="center">出版社<input type="text" name="publisher"></td>
+				<td>出版社<input type="text" name="publisher"></td>
 			</tr>
 			<!-- <tr>
 				<td align="center">点赞数<input type="text" name="likeNum"></td>
 			</tr> -->
 			<tr>
-				<td align="center">描述<input type="text" name="description"></td>
+				<td>描述<input type="text" name="description"></td>
 			</tr>
 			<tr>
-				<td align="center">路径<input type="file" name="file" /></td>
+				<td>路径<input type="file" name="file" /></td>
 			</tr>
 			<tr>
-				<td align="center">封面<input type="file" name="file" /></td>
+				<td>封面<input type="file" name="file" /></td>
+			</tr>
+			<tr>
+				<td>推荐<s:radio name="recommendFlag"
+						list="#{'true':'是','false':'否'}" value="false" />
 			</tr>
 			<!-- <tr>
 				<td align="center">推荐位<input type="text" name="recommendFlag"></td>
 			</tr> -->
 			<tr>
-				<td align="center">图书类别<input type="text"
-					name="bookVariety.varietyID"></td>
+				<td>图书类别<s:select name="bookVariety.varietyID" list="list1"
+						listKey="varietyID" listValue="varietyName"
+						headerValue="---请选择---" /></td>
 			</tr>
-			<s:submit value="提交" />
 		</table>
+		<s:submit value="提交" />
 	</s:form>
+
 </body>
 </html>

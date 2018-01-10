@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ssh.shop.po.Book;
+import com.ssh.shop.po.BookVariety;
 import com.ssh.shop.dao.BookDao;
 import com.ssh.shop.po.PageBean;
 
@@ -37,6 +38,11 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public void addBook(Book book) {
 		bookDao.addBook(book);
+	}
+	//查找所有图书类别
+	@Override
+	public List<BookVariety> findAll() {
+		return bookDao.findAll();
 	}
 
 //	@Override

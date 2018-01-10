@@ -19,9 +19,10 @@
 				<param name="inputName">fileInput</param>
 				<param name="contentDispostion">attachment;filename="$(fileName)"</param>
 			</result>
-			<!-- <result name="delete" type="redirectAction">book_findAllBook.action</result> 
-				<result name="save" type="redirectAction">book_findAllBook.action</result> 
-				<result name="savefalse">/error.jsp</result> <result name="edit">/bookedit.jsp</result> -->
+			<result name="delete" type="redirectAction">book_findAllBook.action</result>
+			<result name="save" type="redirectAction">book_findAllBook.action</result>
+			<result name="savefalse">/error.jsp</result>
+			<result name="edit">/bookedit.jsp</result>
 		</action>
 	</package>
 	<constant name="struts.multipart.maxSize" value="100000000" />

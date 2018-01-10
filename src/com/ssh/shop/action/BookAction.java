@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.ssh.shop.po.PageBean;
 import com.ssh.shop.po.Book;
+import com.ssh.shop.po.BookVariety;
 import com.ssh.shop.service.BookService;
 
 public class BookAction extends ActionSupport implements ModelDriven<Book> {
@@ -107,6 +108,9 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 	}
 
 	public String addBookUI() {
+		List<BookVariety> list1 = bookService.findAll();
+		System.out.println(list1.size());
+		ActionContext.getContext().getValueStack().set("list1", list1);
 		return "addBookUI";
 	}
 
@@ -142,7 +146,7 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 			if (i == 0) {
 				this.book.setBookPath(fileName);
 			} else {
-				this.book.setCover("/upload" + "/" + fileName);
+				this.book.setCover("upload" + "/" + fileName);
 			}
 			File uploadFile = new File(dir, fileName);
 			OutputStream out = new FileOutputStream(uploadFile);

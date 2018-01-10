@@ -50,10 +50,10 @@
 							format="yyyy-MM-dd" /></td>
 
 					<td align="center"><a
-						href="${pageContext.request.contextPath }/book_edit.action?bid=<s:property value="#b.bid" />"><button
+						href="book_edit.action?bookID=<s:property value="#b.bookID" />"><button
 								style="color: red">编辑</button></a></td>
 					<td align="center"><a
-						href="${pageContext.request.contextPath }/book_delete.action?bid=<s:property value="#b.bid" />"><button
+						href="book_delete.action?bookID=<s:property value="#b.bookID" />"><button
 								style="color: red">删除</button></a></td>
 				</tr>
 			</s:iterator>

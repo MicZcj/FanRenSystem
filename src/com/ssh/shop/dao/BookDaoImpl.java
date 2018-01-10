@@ -10,6 +10,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.ssh.shop.po.Book;
+import com.ssh.shop.po.BookVariety;
 
 public class BookDaoImpl extends HibernateDaoSupport implements BookDao {
 
@@ -33,6 +34,11 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao {
 	@Override
 	public void addBook(Book book) {
 		this.getHibernateTemplate().save(book);
+	}
+
+	@Override
+	public List<BookVariety> findAll() {
+		return (List<BookVariety>) this.getHibernateTemplate().find("from BookVariety");
 	}
 
 //	@Override
