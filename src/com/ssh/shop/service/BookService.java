@@ -19,7 +19,7 @@ public interface BookService {
 //
 //	void deleteDate(Book book);
 //
-//	Book findById(Integer bid);
+	Book findById(Integer bid);
 //
-//	boolean update(Book book);
+	boolean update(Book book);
 }

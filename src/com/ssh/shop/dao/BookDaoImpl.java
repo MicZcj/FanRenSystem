@@ -56,21 +56,21 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao {
 //		this.getHibernateTemplate().delete(book);
 //	}
 //
-//	@Override
-//	public Book findById(Integer bid) {
-//		return this.getHibernateTemplate().get(Book.class, bid);
-//	}
-//
-//	@Override
-//	public boolean update(Book book) {
-//		try {
-//			this.getHibernateTemplate().update(book);
-//			return true;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			return false;
-//		}
-//
-//	}
+	@Override
+	public Book findById(Integer bid) {
+		return this.getHibernateTemplate().get(Book.class, bid);
+	}
+
+	@Override
+	public boolean update(Book book) {
+		try {
+			this.getHibernateTemplate().update(book);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
 
 }

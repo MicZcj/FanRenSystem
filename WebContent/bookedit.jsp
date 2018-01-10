@@ -8,32 +8,47 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form action="book_save.action" method="post" namespace="/">
+	<s:form action="book_save.action" method="post" namespace="/"
+		theme="simple">
 		<table>
-			<s:hidden  name="bid" value="%{model.bookID}"/>
-			<s:hidden  name="isbn" value="%{model.isbn}"/>
-			<s:hidden  name="bname" value="%{model.bookName}"/>
-			<s:hidden  name="bauthor" value="%{model.authorName}"/>
-			<s:hidden  name="bpublisher" value="%{model.publisher}"/>
-			<s:hidden  name="bdesc" value="%{model.description}"/>
-			<s:hidden  name="bpath" value="%{model.bookPath}"/>
-			<s:hidden  name="bcover" value="%{model.cover}"/>
-			<s:hidden  name="bdate" value="%{model.publishDate}"/>
-			<s:hidden  name="blike" value="%{model.likeNum}"/>
+			<s:hidden name="bookID" value="%{model.bookID}" />
+			<s:hidden name="bookPath" value="%{model.bookPath}" />
+			<s:hidden name="cover" value="%{model.cover}" />
+			<s:hidden name="publishDate" value="%{model.publishDate}" />
+			<s:hidden name="likeNum" value="%{model.likeNum}" />
 			<tr>
-				<td align="center">价格<s:textfield name="price"
-						value="%{model.price}" /></td>
+				<td>封面<img alt="封面" width="80" height="100"
+					src="<s:property value="%{model.cover}" />"></td>
 			</tr>
 			<tr>
-				<td align="center">标签<s:textfield type="text" name="bookVariety.varietyName"
-						value="%{model.bookVariety.varietyName}" /></td>
+				<td>isbn<s:textfield name="isbn" value="%{model.isbn}" /></td>
 			</tr>
 			<tr>
-				<td align="center">推荐位<s:textfield type="text"
-						name="brecommend" value="%{model.recommendFlag}" /></td>
+				<td>书名<s:textfield name="bookName" value="%{model.bookName}" /></td>
 			</tr>
-			<s:submit value="提交" />
+			<tr>
+				<td>作者<s:textfield name="authorName"
+						value="%{model.authorName}" /></td>
+			</tr>
+			<tr>
+				<td>出版社<s:textfield name="publisher" value="%{model.publisher}" /></td>
+			</tr>
+
+			<tr>
+				<td>描述<s:textfield name="description"
+						value="%{model.description}" /></td>
+			</tr>
+			<tr>
+				<td>图书类别<s:select name="bookVariety.varietyID" list="list2"
+						listKey="varietyID" listValue="varietyName"
+						headerValue="---请选择---" /></td>
+			</tr>
+			<tr>
+				<td>推荐位<s:radio name="recommendFlag"
+						list="#{'true':'是','false':'否'}" value="%{model.recommendFlag}" /></td>
+			</tr>
 		</table>
+		<s:submit value="提交" />
 	</s:form>
 </body>
 </html>

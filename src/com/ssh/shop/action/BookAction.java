@@ -109,7 +109,6 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 
 	public String addBookUI() {
 		List<BookVariety> list1 = bookService.findAll();
-		System.out.println(list1.size());
 		ActionContext.getContext().getValueStack().set("list1", list1);
 		return "addBookUI";
 	}
@@ -180,19 +179,20 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 	// return "delete";
 	// }
 	//
-	// // 跳转到编辑页面
-	// public String edit() {
-	// book = bookService.findById(book.getBid());
-	// return "edit";
-	// }
-	//
-	// // 修改编辑
-	// public String save() {
-	// System.out.println("正在执行修改编辑！");
-	// if (bookService.update(book)) {
-	// return "save";
-	// }
-	// return "savefalse";
-	//
-	// }
+	// 跳转到编辑页面
+	public String edit() {
+		book = bookService.findById(book.getBookID());
+		List<BookVariety> list2 = bookService.findAll();
+		ActionContext.getContext().getValueStack().set("list2", list2);
+		return "edit";
+	}
+	// 修改编辑
+	public String save() {
+		System.out.println("正在执行修改编辑！");
+		if (bookService.update(book)) {
+			return "save";
+		}
+		return "savefalse";
+
+	}
 }

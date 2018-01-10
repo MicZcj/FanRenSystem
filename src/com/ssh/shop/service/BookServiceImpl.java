@@ -58,15 +58,15 @@ public class BookServiceImpl implements BookService {
 //
 //	}
 //
-//	@Override
-//	public Book findById(Integer bid) {
-//		Book book = bookDao.findById(bid);
-//		return book;
-//	}
-//
-//	@Override
-//	public boolean update(Book book) {
-//		return bookDao.update(book);
-//	}
+	@Override
+	public Book findById(Integer bid) {
+		Book book = bookDao.findById(bid);
+		return book;
+	}
+
+	@Override
+	public boolean update(Book book) {
+		return bookDao.update(book);
+	}
 
 }

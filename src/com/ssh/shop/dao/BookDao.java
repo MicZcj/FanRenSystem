@@ -19,8 +19,8 @@ public interface BookDao {
 //
 //	void deleteDate(Book book);
 //
-//	Book findById(Integer bid);
-//
-//	boolean update(Book book);
+	Book findById(Integer bid);
+
+	boolean update(Book book);
 
 }
