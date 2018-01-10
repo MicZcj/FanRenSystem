@@ -17,6 +17,15 @@ import com.ssh.shop.service.BookService;
 public class BookAction extends ActionSupport implements ModelDriven<Book> {
 	private Book book = new Book();
 	private BookService bookService;
+
+	@Override
+	public Book getModel() {
+		// TODO Auto-generated method stub
+		Date date = new Date();
+		this.book.setPublishDate(date);
+		return book;
+	}
+
 	// 上传文件存放路径
 	private final static String UPLOADDIR = "/upload";
 	// 上传文件集合
@@ -54,14 +63,37 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 		this.bookService = bookService;
 	}
 
-	@Override
-	public Book getModel() {
-		// TODO Auto-generated method stub
-		Date date = new Date();
-		this.book.setPublishDate(date);
-		return book;
+	// 下载电子书
+	private InputStream fileInput;
+	private String fileName;
+
+	public String getFileName() {
+		try {
+			fileName = new String(fileName.getBytes(), "ISO8859-1");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return fileName;
 	}
 
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public InputStream getFileInput() {
+		return fileInput;
+	}
+
+	public void setFileInput(InputStream fileInput) {
+		this.fileInput = fileInput;
+	}
+
+	public String downloadBook() throws Exception {
+		fileInput = ServletActionContext.getServletContext().getResourceAsStream("upload/" + fileName);
+		return "downloadBook";
+	}
+
+	// 分页查询
 	private Integer currPage = 1;
 
 	public void setCurrPage(Integer currPage) {
@@ -108,9 +140,9 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 			fileName = fileName.substring(0, fileName.indexOf(".")) + "_" + sdf.format(date)
 					+ fileName.substring(fileName.indexOf("."));
 			if (i == 0) {
-				this.book.setBookPath(dir + "/" + fileName);
+				this.book.setBookPath(fileName);
 			} else {
-				this.book.setCover(dir + "/" + fileName);
+				this.book.setCover("/upload" + "/" + fileName);
 			}
 			File uploadFile = new File(dir, fileName);
 			OutputStream out = new FileOutputStream(uploadFile);
@@ -129,33 +161,34 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 			ex.printStackTrace();
 		}
 	}
-//
-//	// 数据库里的删除文件方法
-//	public String delete() {
-//		List<String> paths = bookService.delete(book);
-//		for (int i = 0; i < paths.size(); i++) {
-//			File file = new File(paths.get(i));
-//			if (file.delete()) {
-//				System.out.println("删除成功！");
-//			}
-//		}
-//		bookService.deleteDate(book);
-//		return "delete";
-//	}
-//
-//	// 跳转到编辑页面
-//	public String edit() {
-//		book = bookService.findById(book.getBid());
-//		return "edit";
-//	}
-//
-//	// 修改编辑
-//	public String save() {
-//		System.out.println("正在执行修改编辑！");
-//		if (bookService.update(book)) {
-//			return "save";
-//		}
-//		return "savefalse";
-//
-//	}
+
+	//
+	// // 数据库里的删除文件方法
+	// public String delete() {
+	// List<String> paths = bookService.delete(book);
+	// for (int i = 0; i < paths.size(); i++) {
+	// File file = new File(paths.get(i));
+	// if (file.delete()) {
+	// System.out.println("删除成功！");
+	// }
+	// }
+	// bookService.deleteDate(book);
+	// return "delete";
+	// }
+	//
+	// // 跳转到编辑页面
+	// public String edit() {
+	// book = bookService.findById(book.getBid());
+	// return "edit";
+	// }
+	//
+	// // 修改编辑
+	// public String save() {
+	// System.out.println("正在执行修改编辑！");
+	// if (bookService.update(book)) {
+	// return "save";
+	// }
+	// return "savefalse";
+	//
+	// }
 }

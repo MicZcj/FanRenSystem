@@ -22,7 +22,7 @@
 				<td align="center">标签</td>
 				<td align="center">点赞</td>
 				<td align="center">描述</td>
-				<td align="center">路径</td>
+				<td align="center">在线预览</td>
 				<td align="center">封面</td>
 				<td align="center">推荐位</td>
 				<td align="center">上架时间</td>
@@ -31,7 +31,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<s:iterator value="list" var="b">
+			<s:iterator value="list" var="b" status="status">
 				<tr>
 					<td align="center"><s:property value="#b.bookID" /></td>
 					<td align="center"><s:property value="#b.isbn" /></td>
@@ -43,8 +43,8 @@
 							value="#b.bookVariety.varietyName" /></td>
 					<td align="center"><s:property value="#b.likeNum" /></td>
 					<td align="center"><s:property value="#b.description" /></td>
-					<td align="center"><s:property value="#b.bookPath" /></td>
-					<td align="center"><s:property value="#b.cover" /></td>
+					<td align="center"><a href="book_downloadBook.action?fileName=<s:property value="#b.bookPath" />"><s:property value="#b.bookPath" /></a></td>
+					<td align="center"><img alt="封面" width="80" height="100" src="<s:property value="#b.cover" />"></td>
 					<td align="center"><s:property value="#b.recommendFlag" /></td>
 					<td align="center"><s:date name="#b.publishDate"
 							format="yyyy-MM-dd" /></td>
