@@ -11,8 +11,13 @@
 	欢迎您:
 	<s:property value="#session.existBoss.bossName" />
 	<br>
-	<a href="managebook.jsp">图书管理</a><br>
-	<a href="order_findAllOrder.action">查询所有账单</a><br>
-	<a href="notify_addUI.action">添加通知</a><br>
+	<a href="book_findAllBook.action">查询所有图书</a>
+	<br>
+	<a href="book_addBookUI.action">添加图书</a>
+	<br>
+	<a href="book_findAllType.action">查询所有图书类别</a>
+	<br>
+	<a href="book_addTypeUI.action">添加图书类别</a>
+	<br>
 </body>
 </html>

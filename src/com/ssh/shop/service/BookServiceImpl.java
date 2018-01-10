@@ -69,4 +69,21 @@ public class BookServiceImpl implements BookService {
 		return bookDao.update(book);
 	}
 
+	@Override
+	public PageBean<BookVariety> findTypeByPage(Integer currPage) {
+		PageBean<BookVariety> pageBean = new PageBean<BookVariety>();
+		pageBean.setCurrPage(currPage);
+		Integer pageSize = 1;
+		pageBean.setPageSize(pageSize);
+		Integer totalCount = bookDao.findTypeCount();
+		pageBean.setTotalCount(totalCount);
+		double tc = totalCount;
+		Double num = Math.ceil(tc / pageSize);
+		pageBean.setTotalPage(num.intValue());
+		int begin = (currPage - 1) * pageSize;
+		List<BookVariety> list = bookDao.findTypeByPage(begin, pageSize);
+		pageBean.setList(list);
+		return pageBean;
+	}
+
 }

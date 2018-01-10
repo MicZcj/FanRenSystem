@@ -8,11 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	欢迎您:
-	<s:property value="#session.existBoss.bossName" />
-	<br>
-	<a href="managebook.jsp">图书管理</a><br>
-	<a href="order_findAllOrder.action">查询所有账单</a><br>
-	<a href="notify_addUI.action">添加通知</a><br>
+	<s:form action="book_addType.action" method="post" namespace="/"
+		theme="simple">
+		<table>
+			<tr>
+				<td>图书类别<input type="text" name="varietyName"></td>
+			</tr>
+		</table>
+		<s:submit value="提交" />
+	</s:form>
+
 </body>
 </html>

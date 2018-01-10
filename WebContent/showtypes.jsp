@@ -14,18 +14,7 @@
 		<thead>
 			<tr>
 				<td align="center">编号</td>
-				<td align="center">isbn</td>
-				<td align="center">书名</td>
-				<td align="center">作者</td>
-				<td align="center">价格</td>
-				<td align="center">出版社</td>
-				<td align="center">标签</td>
-				<td align="center">点赞</td>
-				<td align="center">描述</td>
-				<td align="center">在线预览</td>
-				<td align="center">封面</td>
-				<td align="center">推荐位</td>
-				<td align="center">上架时间</td>
+				<td align="center">类名</td>
 				<td align="center">编辑</td>
 				<td align="center">删除</td>
 			</tr>
@@ -33,27 +22,13 @@
 		<tbody>
 			<s:iterator value="list" var="b" status="status">
 				<tr>
-					<td align="center"><s:property value="#b.bookID" /></td>
-					<td align="center"><s:property value="#b.isbn" /></td>
-					<td align="center"><s:property value="#b.bookName" /></td>
-					<td align="center"><s:property value="#b.authorName" /></td>
-					<td align="center"><s:property value="#b.price" /></td>
-					<td align="center"><s:property value="#b.publisher" /></td>
-					<td align="center"><s:property
-							value="#b.bookVariety.varietyName" /></td>
-					<td align="center"><s:property value="#b.likeNum" /></td>
-					<td align="center"><s:property value="#b.description" /></td>
-					<td align="center"><a href="book_downloadBook.action?fileName=<s:property value="#b.bookPath" />"><s:property value="#b.bookPath" /></a></td>
-					<td align="center"><img alt="封面" width="80" height="100" src="<s:property value="#b.cover" />"></td>
-					<td align="center"><s:property value="#b.recommendFlag" /></td>
-					<td align="center"><s:date name="#b.publishDate"
-							format="yyyy-MM-dd" /></td>
-
+					<td align="center"><s:property value="#b.varietyID" /></td>
+					<td align="center"><s:property value="#b.varietyName" /></td>
 					<td align="center"><a
-						href="book_edit.action?bookID=<s:property value="#b.bookID" />"><button
+						href="book_typeedit.action?varietyID=<s:property value="#b.varietyID" />"><button
 								style="color: red">编辑</button></a></td>
 					<td align="center"><a
-						href="book_delete.action?bookID=<s:property value="#b.bookID" />"><button
+						href="book_typedelete.action?varietyID=<s:property value="#b.varietyID" />"><button
 								style="color: red">删除</button></a></td>
 				</tr>
 			</s:iterator>

@@ -23,4 +23,8 @@ public interface BookDao {
 
 	void deleteData(int bookID);
 
+	List<BookVariety> findTypeByPage(int begin, Integer pageSize);
+
+	Integer findTypeCount();
+
 }

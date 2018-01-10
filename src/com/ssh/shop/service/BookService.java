@@ -22,4 +22,6 @@ public interface BookService {
 	Book findById(Integer bid);
 
 	boolean update(Book book);
+
+	PageBean<BookVariety> findTypeByPage(Integer currPage);
 }

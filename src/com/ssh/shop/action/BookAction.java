@@ -194,4 +194,10 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 		return "savefalse";
 
 	}
+	//显示所有图书类别
+	public String findAllType() {
+		PageBean<BookVariety> pageBean = bookService.findTypeByPage(currPage);
+		ActionContext.getContext().getValueStack().push(pageBean);
+		return "findAllType";
+	}
 }
