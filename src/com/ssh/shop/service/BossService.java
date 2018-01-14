@@ -6,4 +6,6 @@ public interface BossService {
 
 	Boss login(Boss boss);
 
+	boolean password(Boss boss, String password1);
+
 }

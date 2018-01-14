@@ -18,4 +18,17 @@ public class BossDaoImpl extends HibernateDaoSupport implements BossDao {
 		}
 		return null;
 	}
+
+	@Override
+	public boolean password(Boss boss, String password1) {
+		String hql = "from Boss where bossName='" + boss.getBossName() + "' and bossPassword='" + boss.getBossPassword()
+				+ "'";
+		List<Boss> list = (List<Boss>) this.getHibernateTemplate().find(hql);
+		if (list.size() <= 0) {
+			return false;
+		}
+		list.get(0).setBossPassword(password1);
+		this.getHibernateTemplate().save(list.get(0));
+		return true;
+	}
 }

@@ -60,6 +60,7 @@
 					<li><a href="center.jsp"><s:property
 								value="#session.existBoss.bossName" />:个人中心</a></li>
 				</c:if>
+				<li><a href="boss_exit.action">退出登录</a></li>
 			</ul>
 			<!-- /.nav -->
 		</div>

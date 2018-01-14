@@ -18,14 +18,14 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="index.jsp">主页</a></li>
-					<li ${param.type1}><a href="managebook.jsp">图书管理</a></li>
-					<li ${param.type2}><a href="manageorder.jsp">账单管理</a></li>
-					<li ${param.type3}><a href="notify_load.action">通知管理</a></li>
+					<li><a href="managebook.jsp">图书管理</a></li>
+					<li><a href="manageorder.jsp">账单管理</a></li>
+					<li><a href="notify_load.action">通知管理</a></li>
 					<c:if test="${fn:length(admin.adminNickname)<=0}">
-						<li ${param.type4}><a href="center.jsp"><s:property
+						<li><a href="center.jsp"><s:property
 									value="#session.existBoss.bossName" />:个人中心</a></li>
 					</c:if>
-					<li ${param.type5}><a href="login.jsp">退出登录</a></li>
+					<li><a href="boss_exist.action">退出登录</a></li>
 				</ul>
 				<!-- /.nav -->
 			</div>

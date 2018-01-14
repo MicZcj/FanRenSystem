@@ -1,5 +1,10 @@
 package com.ssh.shop.action;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -31,4 +36,27 @@ public class BossAction extends ActionSupport implements ModelDriven<Boss> {
 		ActionContext.getContext().getSession().put("existBoss", existBoss);
 		return "index";
 	}
+
+	public String exit() {
+		ActionContext.getContext().getSession().remove("existBoss");
+		return "exit";
+	}
+
+	public String password() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String password1 = request.getParameter("password1");
+		String password2 = request.getParameter("password2");
+		System.out.println(boss.getBossName() + boss.getBossID());
+		if (!password2.equals(password1)) {
+			request.setAttribute("result", 2);
+			return "password";
+		}
+		if (!bossService.password(boss, password1)) {
+			request.setAttribute("result", 1);
+			return "password";
+		}
+		request.setAttribute("result", 0);
+		return "password";
+	}
+
 }
