@@ -26,7 +26,7 @@ public class BookTypeServiceImpl implements BookTypeService {
 	public PageBean<BookVariety> findTypeByPage(Integer currPage) {
 		PageBean<BookVariety> pageBean = new PageBean<BookVariety>();
 		pageBean.setCurrPage(currPage);
-		Integer pageSize = 1;
+		Integer pageSize = 10;
 		pageBean.setPageSize(pageSize);
 		Integer totalCount = bookTypeDao.findTypeCount();
 		pageBean.setTotalCount(totalCount);

@@ -23,4 +23,8 @@ public interface BookDao {
 
 	void deleteData(int bookID);
 
+	List<Book> findByPage(int begin, Integer pageSize, String[] keywords);
+
+	Integer findCount(String[] keywords);
+
 }

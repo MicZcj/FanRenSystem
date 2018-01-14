@@ -10,7 +10,8 @@
 
 		</action>
 		<action name="book_*" method="{1}" class="com.ssh.shop.action.BookAction">
-			<result name="findAllBook">/showbooks.jsp</result>
+			<result name="findAllBook">/managebook.jsp</result>
+			<result name="fuzzyQuery">/managebook.jsp</result>
 			<result name="addBookUI">/addbook.jsp</result>
 			<result name="addBook" type="redirectAction">book_findAllBook.action</result>
 			<result name="downloadBook" type="stream">
@@ -22,11 +23,11 @@
 			<result name="delete" type="redirectAction">book_findAllBook.action</result>
 			<result name="save" type="redirectAction">book_findAllBook.action</result>
 			<result name="savefalse">/error.jsp</result>
-			<result name="edit">/bookedit.jsp</result>
+			<result name="edit">/editbook.jsp</result>
 		</action>
 		<action name="booktype_*" method="{1}"
 			class="com.ssh.shop.action.BookTypeAction">
-			<result name="findAllType">/showtypes.jsp</result>
+			<result name="findAllType">/managetype.jsp</result>
 			<result name="addTypeUI">/addbooktype.jsp</result>
 			<result name="addType" type="redirectAction">booktype_findAllType.action
 			</result>
@@ -35,14 +36,14 @@
 		</action>
 		<action name="notify_*" method="{1}"
 			class="com.ssh.shop.action.NotificationAction">
-			<result name="load">/shownotifications.jsp</result>
+			<result name="load">/managenotification.jsp</result>
 			<result name="addUI">/addnotify.jsp</result>
 			<result name="save" type="redirectAction">notify_load.action</result>
 			<result name="delete" type="redirectAction">notify_load.action</result>
 		</action>
-		<action name="order_*" method="{1}"
-			class="com.ssh.shop.action.OrderAction">
-			<result name="find">/showorders.jsp</result>
+		<action name="order_*" method="{1}" class="com.ssh.shop.action.OrderAction">
+			<result name="find">/manageorder.jsp</result>
+			<result name="export">/manageorder.jsp</result>
 		</action>
 	</package>
 	<constant name="struts.multipart.maxSize" value="100000000" />

@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -107,6 +109,17 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 		return "findAllBook";
 	}
 
+	public String fuzzyQuery() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String str = request.getParameter("keyword");
+		System.out.println(str);
+		String[] keywords = str.split(" ");
+		System.out.println(keywords.toString());
+		PageBean<Book> pageBean = bookService.findByPage(currPage, keywords);
+		ActionContext.getContext().getValueStack().push(pageBean);
+		return "fuzzyQuery";
+	}
+
 	public String addBookUI() {
 		List<BookVariety> list1 = bookService.findAll();
 		ActionContext.getContext().getValueStack().set("list1", list1);
@@ -196,5 +209,4 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 
 	}
 
-	
 }

@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.ListIterator;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.ssh.shop.po.Book;
@@ -78,6 +80,37 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao {
 
 	}
 
-	
+	@Override
+	public List<Book> findByPage(int begin, Integer pageSize, String[] keywords) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Book.class);
+		for (int i = 0; i < keywords.length; i++) {
+			criteria.add(Restrictions.like("isbn", keywords[i], MatchMode.ANYWHERE));
+			criteria.add(Restrictions.like("bookName", keywords[i], MatchMode.ANYWHERE));
+			criteria.add(Restrictions.like("authorName", keywords[i], MatchMode.ANYWHERE));
+			criteria.add(Restrictions.like("publisher", keywords[i], MatchMode.ANYWHERE));
+		}
+		List<Book> list = (List<Book>) this.getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
+		return list;
+	}
+
+	@Override
+	public Integer findCount(String[] keywords) {
+		String hql = "select count(*) from Book where ";
+		for (int i = 0; i < keywords.length; i++) {
+			hql = hql + "isbn like " + "'%" + keywords[i] + "%' or ";
+			hql = hql + "bookName like " + "'%" + keywords[i] + "%' or ";
+			hql = hql + "authorName like " + "'%" + keywords[i] + "%' or ";
+			hql = hql + "publisher like " + "'%" + keywords[i] + "%' ";
+			if (i != keywords.length - 1) {
+				hql = hql + " or ";
+			}
+		}
+		System.out.println(hql);
+		List<Long> list = (List<Long>) this.getHibernateTemplate().find(hql);
+		if (list.size() > 0) {
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
 
 }

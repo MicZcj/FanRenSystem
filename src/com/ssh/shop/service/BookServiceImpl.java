@@ -22,7 +22,7 @@ public class BookServiceImpl implements BookService {
 	public PageBean<Book> findByPage(Integer currPage) {
 		PageBean<Book> pageBean = new PageBean<Book>();
 		pageBean.setCurrPage(currPage);
-		Integer pageSize = 1;
+		Integer pageSize = 5;
 		pageBean.setPageSize(pageSize);
 		Integer totalCount = bookDao.findCount();
 		pageBean.setTotalCount(totalCount);
@@ -70,5 +70,21 @@ public class BookServiceImpl implements BookService {
 		return bookDao.update(book);
 	}
 
-	
+	@Override
+	public PageBean<Book> findByPage(Integer currPage, String[] keywords) {
+		PageBean<Book> pageBean = new PageBean<Book>();
+		pageBean.setCurrPage(currPage);
+		Integer pageSize = 5;
+		pageBean.setPageSize(pageSize);
+		Integer totalCount = bookDao.findCount(keywords);
+		pageBean.setTotalCount(totalCount);
+		double tc = totalCount;
+		Double num = Math.ceil(tc / pageSize);
+		pageBean.setTotalPage(num.intValue());
+		int begin = (currPage - 1) * pageSize;
+		List<Book> list = bookDao.findByPage(begin, pageSize, keywords);
+		pageBean.setList(list);
+		return pageBean;
+	}
+
 }
