@@ -3,68 +3,72 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2018-1-6 21:02:51 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.ssh.shop.po.Book" table="BOOK">
-        <id name="bookID" type="int">
-            <column name="BOOKID" />
-            <generator class="native" />
-        </id>
-        <property name="isbn" type="java.lang.String">
-            <column name="ISBN" />
-        </property>
-        <property name="bookName" type="java.lang.String">
-            <column name="BOOKNAME" />
-        </property>
-        <property name="authorName" type="java.lang.String">
-            <column name="AUTHORNAME" />
-        </property>
-        <property name="price" type="float">
-            <column name="PRICE" />
-        </property>
-        <property name="publisher" type="java.lang.String">
-            <column name="PUBLISHER" />
-        </property>
-        <property name="likeNum" type="int">
-            <column name="LIKENUM" />
-        </property>
-        <property name="description" type="java.lang.String">
-            <column name="DESCRIPTION" />
-        </property>
-        <property name="bookPath" type="java.lang.String">
-            <column name="BOOKPATH" />
-        </property>
-        <property name="cover" type="java.lang.String">
-            <column name="COVER" />
-        </property>
-        <property name="recommendFlag" type="boolean">
-            <column name="RECOMMENDFLAG" />
-        </property>
-        <property name="publishDate" type="java.util.Date">
-            <column name="PUBLISHDATE" />
-        </property>
-        
-        <many-to-one name="bookVariety"  class="com.ssh.shop.po.BookVariety" lazy="false" fetch="select"> 
-            <column name="VARIETYID" not-null="true"/> 
-        </many-to-one>
-        
-        <set name="orderDetail" inverse="true" cascade="all" lazy="true"> 
-              <key column="BOOKID" not-null="true"/> 
-              <one-to-many class="com.ssh.shop.po.OrderDetail"/> 
-        </set>
-        
-        <set name="shoppingCartDetail" inverse="true" cascade="all" lazy="true"> 
-              <key column="BOOKID" not-null="true"/> 
-              <one-to-many class="com.ssh.shop.po.ShoppingCartDetail"/> 
-        </set>
-        
-        <set name="commentRecord" inverse="true" cascade="all" lazy="true"> 
-              <key column="BOOKID" not-null="true"/> 
-              <one-to-many class="com.ssh.shop.po.CommentRecord"/> 
-        </set>
-        
-        <set name="likeRecord" inverse="true" cascade="all" lazy="true"> 
-              <key column="BOOKID" not-null="true"/> 
-              <one-to-many class="com.ssh.shop.po.LikeRecord"/> 
-        </set> 
-        
-    </class>
+	<class name="com.ssh.shop.po.Book" table="BOOK">
+		<id name="bookID" type="int">
+			<column name="BOOKID" />
+			<generator class="native" />
+		</id>
+		<property name="isbn" type="java.lang.String">
+			<column name="ISBN" />
+		</property>
+		<property name="bookName" type="java.lang.String">
+			<column name="BOOKNAME" />
+		</property>
+		<property name="authorName" type="java.lang.String">
+			<column name="AUTHORNAME" />
+		</property>
+		<property name="price" type="float">
+			<column name="PRICE" />
+		</property>
+		<property name="publisher" type="java.lang.String">
+			<column name="PUBLISHER" />
+		</property>
+		<property name="likeNum" type="int">
+			<column name="LIKENUM" />
+		</property>
+		<property name="sellNum" type="int">
+			<column name="SELLNUM" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" />
+		</property>
+		<property name="bookPath" type="java.lang.String">
+			<column name="BOOKPATH" />
+		</property>
+		<property name="cover" type="java.lang.String">
+			<column name="COVER" />
+		</property>
+		<property name="recommendFlag" type="boolean">
+			<column name="RECOMMENDFLAG" />
+		</property>
+		<property name="publishDate" type="java.util.Date">
+			<column name="PUBLISHDATE" />
+		</property>
+
+		<many-to-one name="bookVariety" class="com.ssh.shop.po.BookVariety"
+			lazy="false" fetch="select">
+			<column name="VARIETYID" not-null="true" />
+		</many-to-one>
+
+		<set name="orderDetail" inverse="true" cascade="all" lazy="true">
+			<key column="BOOKID" not-null="true" />
+			<one-to-many class="com.ssh.shop.po.OrderDetail" />
+		</set>
+
+		<set name="shoppingCartDetail" inverse="true" cascade="all" lazy="true">
+			<key column="BOOKID" not-null="true" />
+			<one-to-many class="com.ssh.shop.po.ShoppingCartDetail" />
+		</set>
+
+		<set name="commentRecord" inverse="true" cascade="all" lazy="true">
+			<key column="BOOKID" not-null="true" />
+			<one-to-many class="com.ssh.shop.po.CommentRecord" />
+		</set>
+
+		<set name="likeRecord" inverse="true" cascade="all" lazy="true">
+			<key column="BOOKID" not-null="true" />
+			<one-to-many class="com.ssh.shop.po.LikeRecord" />
+		</set>
+
+	</class>
 </hibernate-mapping>

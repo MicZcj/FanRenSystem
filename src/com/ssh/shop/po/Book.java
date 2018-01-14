@@ -12,6 +12,7 @@ public class Book implements java.io.Serializable {
 	private float price; //价格
 	private String publisher; //出版商
 	private int likeNum; //点赞数
+	private int sellNum; //书的销量
 	private String description; //描述
 	private String bookPath; //路径
 	private String cover; //封面
@@ -23,6 +24,12 @@ public class Book implements java.io.Serializable {
 	private Set<CommentRecord> commentRecord = new HashSet<CommentRecord>(0); //评论
 	private Set<LikeRecord> likeRecord = new HashSet<LikeRecord>(0); //拥有的点赞集合
 	
+	public int getSellNum() {
+		return sellNum;
+	}
+	public void setSellNum(int sellNum) {
+		this.sellNum = sellNum;
+	}
 	public Set<LikeRecord> getLikeRecord() {
 		return likeRecord;
 	}

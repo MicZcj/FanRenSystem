@@ -40,8 +40,8 @@
 		    	<script src="assets/js/selectivizr.js"></script>
 		    <![endif]-->
 <script type="text/javascript">
-		    if(${result}) alert("上传成功！");
-		    </script>
+	if(${result}) alert("上传成功！");
+</script>
 </head>
 
 <body>
@@ -83,6 +83,7 @@
 						<s:hidden name="cover" value="%{model.cover}" />
 						<s:hidden name="publishDate" value="%{model.publishDate}" />
 						<s:hidden name="likeNum" value="%{model.likeNum}" />
+						<s:hidden name="sellNum" value="%{model.sellNum}" />
 
 						<tr>
 							<td>ISBN</td>
@@ -124,7 +125,7 @@
 						<tr>
 							<td>描述</td>
 							<td><textarea name="description"
-									class="message form-control"  rows="6">${model.description}</textarea></td>
+									class="message form-control" rows="6">${model.description}</textarea></td>
 						</tr>
 						<tr>
 							<td>推荐</td>

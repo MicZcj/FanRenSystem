@@ -96,6 +96,7 @@ ${alert}
 				<th style='text-align: center;'>出版社</th>
 				<!-- <th>标签</th> -->
 				<th style='text-align: center;'>点赞</th>
+				<th style='text-align: center;'>销量</th>
 				<!-- <th>描述</th> -->
 				<th style='text-align: center;'>上架时间</th>
 				<th style='text-align: center;'>在线预览</th>
@@ -117,6 +118,7 @@ ${alert}
 					<%-- <td align="center"><s:property
 							value="#b.bookVariety.varietyName" /></td> --%>
 					<td align="center"><s:property value="#b.likeNum" /></td>
+					<td align="center"><s:property value="#b.sellNum" /></td>
 					<%-- 	<td align="center"><s:property value="#b.description" /></td> --%>
 					<td align="center"><s:date name="#b.publishDate"
 							format="yyyy-MM-dd" /></td>
