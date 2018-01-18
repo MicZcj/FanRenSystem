@@ -51,11 +51,11 @@
 		</many-to-one>
 
 		<set name="orderDetail" inverse="true" cascade="all" lazy="true">
-			<key column="BOOKID" not-null="true" />
+			<key column="BOOKID" />
 			<one-to-many class="com.ssh.shop.po.OrderDetail" />
 		</set>
 
-		<set name="shoppingCartDetail" inverse="true" cascade="all" lazy="true">
+		<set name="shoppingCartDetail" inverse="true" cascade="none" lazy="true">
 			<key column="BOOKID" not-null="true" />
 			<one-to-many class="com.ssh.shop.po.ShoppingCartDetail" />
 		</set>

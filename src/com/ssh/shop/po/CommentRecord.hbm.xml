@@ -9,7 +9,7 @@
             <generator class="native" />
         </id>
         <property name="comment" type="java.lang.String">
-            <column name="COMMENT" />
+            <column name="BOOKCOMMENT" />
         </property>
         <property name="commentDate" type="java.util.Date">
             <column name="COMMENTDATE" />

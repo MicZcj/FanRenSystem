@@ -10,11 +10,11 @@
 		</id>
 		
 		
-		<many-to-one name="user" class="com.ssh.shop.po.User" fetch="select" unique="true">
+		<many-to-one name="user" class="com.ssh.shop.po.User" fetch="select" unique="true" lazy="false">
 			<column name="USERID"></column>
 		</many-to-one>
 		
-	    <set name="shoppingCartDetail" inverse="true" cascade="all" lazy="true"> 
+	    <set name="shoppingCartDetail" inverse="true" cascade="none" lazy="false"> 
               <key column="SHOPPINGCARTID" not-null="true"/> 
               <one-to-many class="com.ssh.shop.po.ShoppingCartDetail"/> 
         </set> 

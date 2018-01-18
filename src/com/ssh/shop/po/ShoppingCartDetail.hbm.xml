@@ -9,12 +9,12 @@
             <generator class="native" />
         </id>
         
-        <many-to-one name="shoppingcart"  class="com.ssh.shop.po.Shoppingcart" fetch="select"  cascade="save-update"> 
-            <column name="SHOPPINGCARTID" not-null="true"/> 
+        <many-to-one name="shoppingcart"  class="com.ssh.shop.po.Shoppingcart" fetch="select"  cascade="save-update" lazy="false"> 
+            <column name="SHOPPINGCARTID"/> 
         </many-to-one>
         
-        <many-to-one name="book"  class="com.ssh.shop.po.Book" fetch="select"  cascade="save-update"> 
-            <column name="BOOKID" not-null="true"/> 
+        <many-to-one name="book"  class="com.ssh.shop.po.Book" fetch="select"  cascade="save-update" lazy="false"> 
+            <column name="BOOKID"/> 
         </many-to-one>
         
     </class>

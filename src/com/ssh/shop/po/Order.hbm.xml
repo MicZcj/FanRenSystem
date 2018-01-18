@@ -22,7 +22,7 @@
 			<column name="USERID" not-null="true" />
 		</many-to-one>
 
-		<set name="orderDetail" inverse="true" cascade="all" lazy="false">
+		<set name="orderDetail" inverse="true" cascade="save-update" lazy="false">
 			<key column="ORDERID" not-null="true" />
 			<one-to-many class="com.ssh.shop.po.OrderDetail" />
 		</set>

@@ -40,9 +40,8 @@
 	function checkNull() {
 
 		var beginDate = dojo.widget.byId("beginDate");
-		var endDate = document.getElementById("endDate");
-
-		if (beginDate.value == null || endDate.value == null) {
+		var endDate = dojo.widget.byId("endDate");
+		if (beginDate.getValue() == "" || endDate.getValue() == "") {
 			alert("请选择起始日期和结束日期！")
 			return false;
 		}
@@ -79,8 +78,8 @@ ${alert}
 				displayFormat="yyyy-MM-dd"></sx:datetimepicker> 
 		结束日期：<sx:datetimepicker id="endDate" name="endDate"
 				displayFormat="yyyy-MM-dd"></sx:datetimepicker>
-			<button type="button" class="btn btn-primary"
-				onclick="return checkNull();this.form.submit();">查询</button>
+			<button type="submit" class="btn btn-primary"
+				 onclick="return checkNull();">查询</button>
 		</s:form>
 		<br>
 		<c:if test="${request.beginDate!=null }">
