@@ -9,7 +9,7 @@
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.jsp">工具管理系统</a>
+				<a class="navbar-brand" href="index.jsp">凡人书屋后台管理系统</a>
 			</div>
 			<!-- /.navbar-header -->
 

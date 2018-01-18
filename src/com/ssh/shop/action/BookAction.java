@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -70,20 +71,37 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 	private InputStream fileInput;
 	private String fileName;
 
-	public String getFileName() {
+	public String getFileName() throws UnsupportedEncodingException {
 		try {
-			fileName = new String(fileName.getBytes(), "ISO8859-1");
+			this.fileName = new String(fileName.getBytes(), "ISO8859-1");
+			System.out.println("getFileName:" + fileName);
 		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("getFileName ERROR:" + fileName);
 			e.printStackTrace();
 		}
 		return fileName;
 	}
 
 	public void setFileName(String fileName) {
-		this.fileName = fileName;
+		try {
+			this.fileName = new String(fileName.getBytes(), "ISO8859-1");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("setFileName ERROR:" + fileName);
+			e.printStackTrace();
+		}
+		;
 	}
 
 	public InputStream getFileInput() {
+		try {
+			this.fileName = new String(fileName.getBytes(), "ISO8859-1");
+			System.out.println("InputStream:" + fileName);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return fileInput;
 	}
 
@@ -93,6 +111,7 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 
 	public String downloadBook() throws Exception {
 		fileInput = ServletActionContext.getServletContext().getResourceAsStream("upload/" + fileName);
+		System.out.println("downloadBook:" + fileName);
 		return "downloadBook";
 	}
 
@@ -153,13 +172,21 @@ public class BookAction extends ActionSupport implements ModelDriven<Book> {
 			Date date = new Date();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 			String fileName = this.getFileFileName().get(i);
-			fileName = fileName.substring(0, fileName.indexOf(".")) + "_" + sdf.format(date)
-					+ fileName.substring(fileName.indexOf("."));
+			if (fileName.indexOf(".") == -1) {
+				// fileName = fileName + "_" + sdf.format(date);
+				fileName = sdf.format(date);
+			} else {
+				// fileName = fileName.substring(0, fileName.indexOf(".")) + "_" +
+				// sdf.format(date)
+				// + fileName.substring(fileName.indexOf("."));
+				fileName = sdf.format(date) + fileName.substring(fileName.indexOf("."));
+			}
 			if (i == 0) {
 				this.book.setBookPath(fileName);
 			} else {
 				this.book.setCover("upload" + "/" + fileName);
 			}
+			System.out.println(dir + "/" + fileName);
 			File uploadFile = new File(dir, fileName);
 			OutputStream out = new FileOutputStream(uploadFile);
 			byte[] buffer = new byte[1024 * 1024];

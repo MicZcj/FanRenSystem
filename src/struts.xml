@@ -16,10 +16,11 @@
 			<result name="addBookUI">/addbook.jsp</result>
 			<result name="addBook" type="redirectAction">book_findAllBook.action</result>
 			<result name="downloadBook" type="stream">
-				<!-- <param name="contentType">text/plain;charset=ISO8859-1</param> -->
+				<!-- <param name="contentType">application/x-download;charset=ISO8859-1</param> -->
+				<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
 				<!-- <param name="contentType">application/octet-stream</param> -->
 				<param name="inputName">fileInput</param>
-				<param name="contentDispostion">attachment;filename="$(fileName)"</param>
+				<param name="contentDispostion">attachment;filename="${fileName}"</param>
 			</result>
 			<result name="delete" type="redirectAction">book_findAllBook.action</result>
 			<result name="save" type="redirectAction">book_findAllBook.action</result>
@@ -48,4 +49,5 @@
 		</action>
 	</package>
 	<constant name="struts.multipart.maxSize" value="100000000" />
+	<constant name="struts.multipart.saveDir" value="/tmp" />
 </struts>

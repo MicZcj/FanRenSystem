@@ -36,6 +36,19 @@
 		    	<script src="assets/js/selectivizr.js"></script>
 		    <![endif]-->
 <sx:head />
+<script type="text/javascript">
+	function checkNull() {
+
+		var beginDate = dojo.widget.byId("beginDate");
+		var endDate = document.getElementById("endDate");
+
+		if (beginDate.value == null || endDate.value == null) {
+			alert("请选择起始日期和结束日期！")
+			return false;
+		}
+		return true;
+	}
+</script>
 </head>
 ${alert}
 <body>
@@ -62,10 +75,12 @@ ${alert}
 		<h1>账单检索</h1>
 		<br>
 		<s:form action="order_find.action" method="post" namespace="/">
-		起始日期：<sx:datetimepicker name="beginDate" displayFormat="yyyy-MM-dd"></sx:datetimepicker> 
-		结束日期：<sx:datetimepicker name="endDate" displayFormat="yyyy-MM-dd"></sx:datetimepicker>
+		起始日期：<sx:datetimepicker id="beginDate" name="beginDate"
+				displayFormat="yyyy-MM-dd"></sx:datetimepicker> 
+		结束日期：<sx:datetimepicker id="endDate" name="endDate"
+				displayFormat="yyyy-MM-dd"></sx:datetimepicker>
 			<button type="button" class="btn btn-primary"
-				onclick="this.form.submit();">查询</button>
+				onclick="return checkNull();this.form.submit();">查询</button>
 		</s:form>
 		<br>
 		<c:if test="${request.beginDate!=null }">

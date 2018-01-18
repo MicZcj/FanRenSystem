@@ -14,11 +14,11 @@
 					<div class="icon fb">
 						<i class="ion-social-github"></i>
 					</div>
-				</a> <a href="#">
+				</a> <a href="https://twitter.com/MicZcj">
 					<div class="icon twitter">
 						<i class="ion-social-twitter"></i>
 					</div>
-				</a> <a href="#">
+				</a> <a href="https://www.google.com.hk/webhp?hl=zh-CN&sourceid=cnhp&gws_rd=ssl">
 					<div class="icon google">
 						<i class="ion-social-googleplus"></i>
 					</div>

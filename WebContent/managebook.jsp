@@ -123,13 +123,12 @@ ${alert}
 					<td align="center"><s:date name="#b.publishDate"
 							format="yyyy-MM-dd" /></td>
 					<td align="center"><a
-						href="book_downloadBook.action?fileName=<s:property value="#b.bookPath" />">
-							<%-- <s:property
-								value="#b.bookPath" /> --%>预览
+						href="book_downloadBook.action?fileName=<s:property
+								value="#b.bookPath" />">预览<!-- <input
+							type="hidden" name="fileName" value="#b.bookPath"> --> <%-- <s:hidden
+								name="fileName" value="#b.bookPath" />  --%> <%-- --%>
 					</a></td>
 					<%-- 	<td align="center"><s:property value="#b.recommendFlag" /></td> --%>
-
-
 					<td align="center"><a
 						href="book_edit.action?bookID=<s:property value="#b.bookID" />"><button
 								type="button" class="btn btn-warning">编辑</button></a></td>
